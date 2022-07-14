@@ -24,31 +24,38 @@ Vue.config.devtools = true;
 // Cerchiamo di rispettare tutti i principi e le best practices viste finora (nomi di variabili e classi, centralizzazione ecc)
 
 const root = new Vue({
-    name: '',
-    el: '',
+    name: 'window',
+    el: '#window',
     data: {
         user: {
             name: 'Nome Utente',
-            avatar: '_io'
+            avatar: '_io',
+            profilePic: 'img/avatar_io.jpg'
         },
         contacts: [
             {
                 name: 'Michele',
                 avatar: '_1',
+                profilePic: 'img/avatar_1.jpg'
             },
             {
                 name: 'Fabio',
                 avatar: '_2',
+                profilePic: 'img/avatar_2.jpg'
             },
             {
                 name: 'Samuele',
                 avatar: '_3',
+                profilePic: 'img/avatar_3.jpg'
             },
             {
                 name: 'Luisa',
-                avatar: '_4',
+                avatar: '_6',
+                profilePic: 'img/avatar_6.jpg'
             },
-        ]
+        ],
+
+        chatSearch: '',
     },
 
     computed: {

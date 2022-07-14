@@ -22,6 +22,103 @@
 </head>
 
 <body>
+    <div class="container h-100">
+
+        <div class="row h-100 align-items-center">
+
+            <div class="col-11" id="window">
+
+                <div class="row h-100">
+
+                    <section class="col-5 contacts h-100 p-0">
+
+                        <header class="user p-2 d-flex justify-content-between align-items-center">
+                            
+                            <div class="info">
+                                <img :src="user.profilePic" alt="" class="profile-pic">
+                                <span><strong>{{user.name}}</strong></span>
+                            </div>
+
+                            <div class="icons text-secondary">
+                                <i class="bi bi-circle"></i>
+                                <i class="bi bi-chat-left-fill"></i>
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </div>
+
+                        </header>
+
+                        <main>
+
+                            <div class="message-notice p-2 d-flex align-items-center">
+                                <span class="bell rounded-circle text-center me-2"><i class="bi bi-bell-slash"></i></span>
+                                <span>Ricevi notifiche di nuovi messaggi
+                                    <br>
+                                    <a href="" class="text-secondary">Attiva notifiche desktop</a>
+                                </span>
+                            </div>
+
+                            <div class="chat-search form-control d-flex justify-content-start my-2 mx-auto">
+                                <i class="bi bi-search text-secondary me-2"></i>
+                                <input type="text" class="border-0 w-100" placeholder="Cerca o inizia una nuova chat" v-model="chatSearch">
+                            </div>
+
+                            <ul class="contacts-list p-3">
+                                <li v-for="contact in contacts" class="d-flex mb-3">
+                                    <img :src="contact.profilePic" alt="" class="profile-pic me-2">
+                                    <span><strong>{{contact.name}}</strong></span>
+                                </li>
+                                        
+                            </ul>
+
+                        </main>
+
+                    </section>
+
+                    <section class="col-7 chat h-100 p-0">
+
+                        <header class="chat-contact p-2 d-flex justify-content-between align-items-center">
+                            
+                            <div class="info d-flex">
+                                <img src="img/avatar_1.jpg" alt="" class="profile-pic">
+
+                                <div><strong>Michele</strong>
+                                <br>
+                                <span class="text-secondary">Ultimo accesso oggi alle</span>
+                            </div>
+                                
+                            </div>
+
+                            <div class="icons text-secondary">
+                                <i class="bi bi-search"></i>
+                                <i class="bi bi-paperclip"></i>
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </div>
+
+                        </header>
+
+                        <main>
+
+                            <div class="conversation">
+                                
+                            </div>                            
+
+                        </main>
+
+                        <footer>
+
+                        </footer>
+
+
+                    </section>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
     <script src="js/script.js"></script>
 </body>
 
