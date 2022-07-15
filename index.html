@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <div class="container h-100">
+    <div class="container h-100" id="root">
 
         <div class="row h-100 align-items-center">
 
@@ -30,12 +30,12 @@
 
                 <div class="row h-100">
 
-                    <section class="col-5 contacts h-100 p-0">
+                    <section class="col-5 contacts h-100 p-0 d-flex flex-column">
 
-                        <header class="user p-2 d-flex justify-content-between align-items-center">
+                        <header class="user p-2 flex-shrink-1 d-flex justify-content-between align-items-center">
                             
                             <div class="info">
-                                <img :src="user.profilePic" alt="" class="profile-pic">
+                                <img :src="`img/avatar${user.avatar}.jpg`" alt="" class="profile-pic">
                                 <span><strong>{{user.name}}</strong></span>
                             </div>
 
@@ -47,9 +47,7 @@
 
                         </header>
 
-                        <main>
-
-                            <div class="message-notice p-2 d-flex align-items-center">
+                            <div class="message-notice p-2 flex-shrink-1 d-flex align-items-center">
                                 <span class="bell rounded-circle text-center me-2"><i class="bi bi-bell-slash"></i></span>
                                 <span>Ricevi notifiche di nuovi messaggi
                                     <br>
@@ -57,26 +55,25 @@
                                 </span>
                             </div>
 
-                            <div class="chat-search form-control d-flex justify-content-start my-2 mx-auto">
+                            <div class="chat-search flex-shrink-1 form-control d-flex justify-content-start my-2 mx-auto">
                                 <i class="bi bi-search text-secondary me-2"></i>
-                                <input type="text" class="border-0 w-100" placeholder="Cerca o inizia una nuova chat" v-model="chatSearch">
+                                <input type="text" class="form-control p-0 border-0 w-100" placeholder="Cerca o inizia una nuova chat" v-model="chatSearch">
                             </div>
 
-                            <ul class="contacts-list p-3">
-                                <li v-for="contact in contacts" class="d-flex mb-3">
-                                    <img :src="contact.profilePic" alt="" class="profile-pic me-2">
+                            <ul class="contacts-list flex-grow-1 p-3">
+                                <li v-for="contact in contacts" class="contact d-flex p-2 
+                                mb-3" role="button">
+                                    <img :src="`img/avatar${contact.avatar}.jpg`" alt="" class="profile-pic me-2">
                                     <span><strong>{{contact.name}}</strong></span>
                                 </li>
                                         
                             </ul>
 
-                        </main>
-
                     </section>
 
-                    <section class="col-7 chat h-100 p-0">
+                    <section class="col-7 chat h-100 p-0 d-flex flex-column">
 
-                        <header class="chat-contact p-2 d-flex justify-content-between align-items-center">
+                        <header class="chat-contact p-2 flex-shrink-1 d-flex justify-content-between align-items-center">
                             
                             <div class="info d-flex">
                                 <img src="img/avatar_1.jpg" alt="" class="profile-pic">
@@ -96,16 +93,15 @@
 
                         </header>
 
-                        <main>
-
-                            <div class="conversation">
-                                
+                            <div class="messages-container flex-grow-1">
                             </div>                            
 
-                        </main>
-
                         <footer>
-
+                            <div class="write-message h-100 d-flex justify-content-around align-items-center">
+                                <i class="bi bi-emoji-smile text-secondary fs-4"></i>
+                                <input type="text" class="form-control w-75" placeholder="Scrivi un messaggio">
+                                <i class="bi bi-mic-fill text-secondary fs-4"></i>
+                            </div>
                         </footer>
 
 
