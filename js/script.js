@@ -26,10 +26,12 @@ Vue.config.devtools = true;
 const root = new Vue({
     el: '#root',
     data: {
+
         user: {
             name: 'Nome Utente',
             avatar: '_io',
         },
+
         contacts: [
             {
               name: 'Michele',
@@ -113,14 +115,21 @@ const root = new Vue({
           ],
 
         chatSearch: '',
+
         typeMessage: '',
     },
 
     computed: {
-
     },
 
     methods: {
-
+        contactMessages(){
+            const messagesArray = contacts.map((contact) => {
+            return contact.messages.text;
+            });
+            console.log(messagesArray)
+            return messagesArray;
+        }
+    
     }
 })
