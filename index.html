@@ -24,7 +24,7 @@
 <body>
     <div class="container h-100" id="root">
 
-        <div class="row h-100 align-items-center">
+        <div class="row h-100 justify-content-center align-items-center">
 
             <div class="col-11" id="window">
 
@@ -35,7 +35,7 @@
                         <header class="user p-2 flex-shrink-1 d-flex justify-content-between align-items-center">
                             
                             <div class="info">
-                                <img :src="`img/avatar${user.avatar}.jpg`" alt="" class="profile-pic">
+                                <img :src="`img/avatar${user.avatar}.jpg`" alt="" class="profile-pic rounded-circle me-2">
                                 <span><strong>{{user.name}}</strong></span>
                             </div>
 
@@ -60,10 +60,10 @@
                                 <input type="text" class="form-control p-0 border-0 w-100" placeholder="Cerca o inizia una nuova chat" v-model="chatSearch">
                             </div>
 
-                            <ul class="contacts-list flex-grow-1 p-3">
-                                <li v-for="contact in contacts" class="contact d-flex p-2 
+                            <ul class="contacts-list list-group flex-grow-1 p-3">
+                                <li v-for="contact in contacts" class="contact list-group-item border-0 d-flex p-2 
                                 mb-3" role="button">
-                                    <img :src="`img/avatar${contact.avatar}.jpg`" alt="" class="profile-pic me-2">
+                                    <img :src="`img/avatar${contact.avatar}.jpg`" alt="" class="profile-pic rounded-circle me-2">
                                     <span><strong>{{contact.name}}</strong></span>
                                 </li>
                                         
@@ -76,7 +76,7 @@
                         <header class="chat-contact p-2 flex-shrink-1 d-flex justify-content-between align-items-center">
                             
                             <div class="info d-flex">
-                                <img src="img/avatar_1.jpg" alt="" class="profile-pic">
+                                <img src="img/avatar_1.jpg" alt="" class="profile-pic rounded-circle me-2">
 
                                 <div><strong>Michele</strong>
                                 <br>
@@ -93,13 +93,26 @@
 
                         </header>
 
-                            <div class="messages-container flex-grow-1">
-                            </div>                            
+                            <main class="messages-container flex-grow-1">
+                                <div class="sent">
+                                    <ul class="list-group d-flex flex-column align-items-end">
+                                        <li class="message list-group-item my-3 me-3 ms-5">
+                                            <div class="text">{{typeMessage}}</div>
+                                            <div class="time"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="received">
+                                    <ul class="list-group d-flex flex-column align-items-start">
+                                        <li class="message list-group-item my-3 me-5 ms-3"></li>
+                                    </ul>
+                                </div>
+                            </main>                            
 
                         <footer>
-                            <div class="write-message h-100 d-flex justify-content-around align-items-center">
+                            <div class="type-message h-100 d-flex justify-content-around align-items-center">
                                 <i class="bi bi-emoji-smile text-secondary fs-4"></i>
-                                <input type="text" class="form-control w-75" placeholder="Scrivi un messaggio">
+                                <input type="text" class="form-control w-75" placeholder="Scrivi un messaggio" v-model="typeMessage">
                                 <i class="bi bi-mic-fill text-secondary fs-4"></i>
                             </div>
                         </footer>

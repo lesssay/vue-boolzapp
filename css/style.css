@@ -17,7 +17,6 @@ body{
 
 #window{
     height: 650px;
-    margin: 0 auto;
     background-color: white;
     box-shadow: 5px 5px 8px #5d5d5d;
 }
@@ -33,17 +32,34 @@ header, footer {
 
 /* utils */
 
+.contacts-list, .messages-container{
+    overflow: auto;
+}
+
 .icons i{
     margin: 0 5px;
 }
 
-.profile-pic{
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
 .user .profile-pic, .chat .profile-pic {
     width: 50px;
+}
+
+.contacts-list .profile-pic{
+    width: 60px;
+}
+
+.message{
+    min-width: 100px;
+    min-height: 50px;
+    border-radius: 10px;
+}
+
+.sent .message{
+    background-color: #D5F9BA;
+}
+
+.received .message{
+    background-color: white;
 }
 
 /************************* contacts ***********************/
@@ -67,15 +83,6 @@ header, footer {
     width: 95%;
 }
 
-.contacts-list{
-    overflow: auto;
-   list-style-type: none;
-}
-
-.contacts-list .profile-pic{
-    width: 60px;
-}
-
 .contact:hover{
     background-color: #cccccc;
 }
@@ -84,10 +91,6 @@ header, footer {
 
 section.chat{
     background-image: url(../img/mine.jpg);
-}
-
-.chat .messages-container {
-    overflow: auto;
 }
 
 
