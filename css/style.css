@@ -52,14 +52,23 @@ header, footer {
     min-width: 100px;
     min-height: 50px;
     border-radius: 10px;
+    margin: 10px 0;
+    background-color: transparent;
+    border-color: transparent;
 }
 
-.sent .message{
+.sent {
     background-color: #D5F9BA;
+    align-self: flex-end;
+    margin-left: 20px;
+    margin-right: 10px;
 }
 
-.received .message{
+.received {
     background-color: white;
+    align-self: flex-start;
+    margin-left: 10px;
+    margin-right: 20px;
 }
 
 /************************* contacts ***********************/

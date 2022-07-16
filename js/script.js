@@ -114,22 +114,17 @@ const root = new Vue({
             },
           ],
 
+        currentIndex: 0, 
+
         chatSearch: '',
 
         typeMessage: '',
     },
 
-    computed: {
-    },
+    methods:{
 
-    methods: {
-        contactMessages(){
-            const messagesArray = contacts.map((contact) => {
-            return contact.messages.text;
-            });
-            console.log(messagesArray)
-            return messagesArray;
-        }
-    
+       showContact(index) {
+         this.currentIndex = index;
+       },
     }
 })
