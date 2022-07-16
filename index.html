@@ -119,8 +119,6 @@
                                 <input type="text" 
                                 class="form-control w-75" 
                                 placeholder="Scrivi un messaggio" 
-                                :class="{'d-none' : currentIndex !== index}"
-                                v-for="(contact, index) in contacts"
                                 v-model="newTextMessage"
                                 @keyup.enter="sendNewMessage(currentIndex)">
                                 <i class="bi bi-mic-fill text-secondary fs-4"></i>
