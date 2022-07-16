@@ -80,7 +80,7 @@
                             <div class="info d-flex"
                             :class="{'d-none' : currentIndex !== index}"
                             v-for="(contact, index) in contacts">
-                            
+
                                 <img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name}`" class="profile-pic rounded-circle me-2">
 
                                 <div><strong>{{contact.name}}</strong>
@@ -116,7 +116,13 @@
                         <footer>
                             <div class="type-message h-100 d-flex justify-content-around align-items-center">
                                 <i class="bi bi-emoji-smile text-secondary fs-4"></i>
-                                <input type="text" class="form-control w-75" placeholder="Scrivi un messaggio" v-model="typeMessage">
+                                <input type="text" 
+                                class="form-control w-75" 
+                                placeholder="Scrivi un messaggio" 
+                                :class="{'d-none' : currentIndex !== index}"
+                                v-for="(contact, index) in contacts"
+                                v-model="newTextMessage"
+                                @keyup.enter="sendNewMessage(currentIndex)">
                                 <i class="bi bi-mic-fill text-secondary fs-4"></i>
                             </div>
                         </footer>

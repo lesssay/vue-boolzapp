@@ -118,7 +118,7 @@ const root = new Vue({
 
         chatSearch: '',
 
-        typeMessage: '',
+        newTextMessage: '',
     },
 
     methods:{
@@ -126,5 +126,20 @@ const root = new Vue({
        showContact(index) {
          this.currentIndex = index;
        },
+
+       sendNewMessage(index) {
+        if(this.newTextMessage) {
+
+           const newMessage = {
+            date: '16/07/2022',
+            text: this.newTextMessage,
+            status: 'sent' 
+           };
+
+           this.contacts[index].messages.push(newMessage);
+
+           this.newTextMessage = '';
+        }
+       }
     }
 })
