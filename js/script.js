@@ -130,16 +130,32 @@ const root = new Vue({
        sendNewMessage(index) {
         if(this.newTextMessage) {
 
-           const newMessage = {
+           const newMessageSent = {
             date: '16/07/2022',
             text: this.newTextMessage,
             status: 'sent' 
            };
 
-           this.contacts[index].messages.push(newMessage);
+           this.contacts[index].messages.push(newMessageSent);
 
            this.newTextMessage = '';
+
+           this.getAnswer(index);
         }
+       },
+
+       getAnswer(index) {
+        setTimeout (() =>{
+
+          const newMessageReceived = {
+            date: '16/07/2022',
+            text: 'ok',
+            status: 'received' 
+           };
+
+           this.contacts[index].messages.push(newMessageReceived);
+        },1000)
        }
+
     }
 })
