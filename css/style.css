@@ -93,7 +93,7 @@ header, footer {
 }
 
 .contact:hover{
-    background-color: #cccccc;
+    background-color: #ececec;
 }
 
 /*************************** chat *****************************/
@@ -102,4 +102,7 @@ section.chat{
     background-image: url(../img/mine.jpg);
 }
 
+.date {
+    font-size: 0.7rem;
+}
 

@@ -57,14 +57,18 @@
 
                             <div class="chat-search flex-shrink-1 form-control d-flex justify-content-start my-2 mx-auto">
                                 <i class="bi bi-search text-secondary me-2"></i>
-                                <input type="text" class="form-control p-0 border-0 w-100" placeholder="Cerca o inizia una nuova chat" v-model="chatSearch">
+                                <input type="text" 
+                                class="form-control p-0 border-0 w-100" 
+                                placeholder="Cerca o inizia una nuova chat" 
+                                v-model="chatSearch"
+                                @keyup="showContactSearched(currentIndex)">
                             </div>
 
                             <ul class="contacts-list list-group flex-grow-1 p-3">
                                 <li v-for="(contact, index) in contacts" 
                                 class="contact list-group-item border-0 d-flex p-2 mb-3" 
                                 role="button"
-                                @click="showContact(index)">
+                                @click="setCurrentContact(index)">
                                     <img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name}`" class="profile-pic rounded-circle me-2">
                                     <span><strong>{{contact.name}}</strong></span>
                                 </li>
@@ -104,7 +108,7 @@
                                     <ul class="list-group d-flex flex-column">
                                         <li v-for="message in contacts[currentIndex].messages" 
                                         class="message list-group-item d-flex flex-column"
-                                        :class="{'sent' : message.status === 'sent', 'received' : message.status === 'received'}"
+                                        :class="message.status"
                                         v-show="contacts[currentIndex]">    
                                             <div class="text">{{message.text}}</div>
                                             <div class="date align-self-end">{{message.date}}</div>
@@ -119,8 +123,8 @@
                                 <input type="text" 
                                 class="form-control w-75" 
                                 placeholder="Scrivi un messaggio" 
-                                v-model="newTextMessage"
-                                @keyup.enter="sendNewMessage(currentIndex)">
+                                v-model.trim="newTextMessage"
+                                @keyup.enter="sendNewMessage()">
                                 <i class="bi bi-mic-fill text-secondary fs-4"></i>
                             </div>
                         </footer>
