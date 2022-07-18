@@ -21,7 +21,7 @@ body{
     box-shadow: 5px 5px 8px #5d5d5d;
 }
 
-section{
+.contacts, .chat{
     border: 1px solid #97c9c4;
 }
 
@@ -40,12 +40,8 @@ header, footer {
     margin: 0 5px;
 }
 
-.user .profile-pic, .chat .profile-pic {
+.profile-pic{
     width: 50px;
-}
-
-.contacts-list .profile-pic{
-    width: 60px;
 }
 
 .message{
@@ -55,6 +51,7 @@ header, footer {
     margin: 10px 0;
     background-color: transparent;
     border-color: transparent;
+    box-shadow: 2px 2px 5px #5d5d5d;
 }
 
 .sent {
@@ -98,7 +95,7 @@ header, footer {
 
 /*************************** chat *****************************/
 
-section.chat{
+.chat{
     background-image: url(../img/mine.jpg);
 }
 

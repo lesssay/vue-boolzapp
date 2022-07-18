@@ -118,36 +118,43 @@ const root = new Vue({
 
         newTextMessage: '',
         
-        chatSearch: '',
+        contactTextSearch: '',
 
     },
 
     computed: {
-      getDate(){
+      visibleContacts(){
+        const searchText = this.contactTextSearch.toLowerCase();
+        const array = this.contacts.map((contact)=>{
+          contact.visible = contact.name.toLowerCase().includes(searchText);
+          return contact;
+        });
+
+        return array;
+      }
+  
+    },
+
+    methods:{
+     getDate(){
         const date = new Date();
         const hours = date.getHours();
-        const minutes = date.getMinutes();
-        const currentHour = `${hours}:${minutes}`;
+        const minutes = date.getMinutes() > 10 ? date.getMinutes(): `0${date.getMinutes()}`;
+        const seconds = date.getSeconds() > 10 ? date.getSeconds(): `0${date.getSeconds()}`;
+        const currentHour = `${hours}:${minutes}:${seconds}`;
   
         currentDate = `${date.toLocaleDateString()} ${currentHour}`;
   
         return currentDate;
-       }
-    },
-
-    methods:{
-
+       },
 
       setCurrentContact(index) {
          this.currentIndex = index;
        },
 
       newMessage(text, status){
-        const newMessage = {
-          date: currentDate,
-          text: text,
-          status: status, 
-        };
+        const date = this.getDate();
+        const newMessage = {date, text, status};
         this.contacts[this.currentIndex].messages.push(newMessage);
        },
 
@@ -158,15 +165,12 @@ const root = new Vue({
 
         this.newTextMessage = '';
 
-        setTimeout (() =>{
-          this.receiveNewMessage()
-        },1000);
+      setTimeout (this.receiveNewMessage ,1000);
       },
 
-       receiveNewMessage(){
+      receiveNewMessage(){
         this.newMessage('ok', 'received');
-       }
+       },
 
-       }
-
+    }
 })

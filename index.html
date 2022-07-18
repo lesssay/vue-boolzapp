@@ -30,7 +30,7 @@
 
                 <div class="row h-100">
 
-                    <section class="col-5 contacts h-100 p-0 d-flex flex-column">
+                    <div class="col-5 contacts h-100 p-0 d-flex flex-column">
 
                         <header class="user p-2 flex-shrink-1 d-flex justify-content-between align-items-center">
                             
@@ -60,24 +60,24 @@
                                 <input type="text" 
                                 class="form-control p-0 border-0 w-100" 
                                 placeholder="Cerca o inizia una nuova chat" 
-                                v-model="chatSearch"
-                                @keyup="showContactSearched(currentIndex)">
+                                v-model="contactTextSearch">
                             </div>
 
-                            <ul class="contacts-list list-group flex-grow-1 p-3">
-                                <li v-for="(contact, index) in contacts" 
+                            <ul class="contacts-list list-group flex-grow-1 p-3 rounded-0">
+                                <li v-for="(contact, index) in visibleContacts" 
                                 class="contact list-group-item border-0 d-flex p-2 mb-3" 
                                 role="button"
-                                @click="setCurrentContact(index)">
+                                @click="setCurrentContact(index)"
+                                v-if="contact.visible">    
                                     <img :src="`img/avatar${contact.avatar}.jpg`" :alt="`${contact.name}`" class="profile-pic rounded-circle me-2">
                                     <span><strong>{{contact.name}}</strong></span>
                                 </li>
                                         
                             </ul>
 
-                    </section>
+                    </div>
 
-                    <section class="col-7 chat h-100 p-0 d-flex flex-column">
+                    <div class="col-7 chat h-100 p-0 d-flex flex-column">
 
                         <header class="chat-contact p-2 flex-shrink-1 d-flex justify-content-between align-items-center">
                             
@@ -109,7 +109,7 @@
                                         <li v-for="message in contacts[currentIndex].messages" 
                                         class="message list-group-item d-flex flex-column"
                                         :class="message.status"
-                                        v-show="contacts[currentIndex]">    
+                                        v-show="contacts[currentIndex]">
                                             <div class="text">{{message.text}}</div>
                                             <div class="date align-self-end">{{message.date}}</div>
                                         </li>
@@ -130,7 +130,7 @@
                         </footer>
 
 
-                    </section>
+                    </div>
 
                 </div>
 
