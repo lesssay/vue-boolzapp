@@ -89,7 +89,7 @@
 
                                 <div><strong>{{contact.name}}</strong>
                                 <br>
-                                <span class="text-secondary">Ultimo accesso oggi alle</span>
+                                <span class="text-secondary">Ultimo accesso oggi alle {{ getHour() }}</span>
 
                             </div>
                                 
@@ -106,10 +106,10 @@
                             <main class="messages-container flex-grow-1">
 
                                     <ul class="list-group d-flex flex-column">
-                                        <li v-for="message in contacts[currentIndex].messages" 
+                                        <li v-for="message in currentContact.messages" 
                                         class="message list-group-item d-flex flex-column"
                                         :class="message.status"
-                                        v-show="contacts[currentIndex]">
+                                        v-show="currentContact">
                                             <div class="text">{{message.text}}</div>
                                             <div class="date align-self-end">{{message.date}}</div>
                                         </li>
